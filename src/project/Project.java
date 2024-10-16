@@ -93,10 +93,10 @@ public class Project {
         String grade = sc.next();
 
         
-        String sql = "INSERT INTO Project (Student_ID, Project_title, Project_description, Submission_Date, Grade) VALUES (?, ?, ?, ?, ?)";
+        String qry = " UPDATE Project SET Student_ID = ?, Project_Title = ?, Project_description = ? , Submission_Date = ?, Grade = ?";
 
         config conf = new config();
-        conf.updateRecord(sql, sid, title, description, date, grade);
+        conf.updateRecord(qry, sid, title, description, date, grade);
     }
      
      public void deleteRecord(){
@@ -104,7 +104,7 @@ public class Project {
         System.out.print("Enter the ID to delete: ");
         int id = sc.nextInt();
         
-        String qry = "DELETE FROM Project WHERE ID = ?";
+        String qry = "DELETE FROM Project WHERE Student_ID = ?";
         
         config conf = new config();
         conf.deleteRecord(qry, id);
